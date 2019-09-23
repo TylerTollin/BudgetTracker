@@ -21,8 +21,6 @@ namespace BudgetTrackerMain
             base.Dispose(disposing);
         }
 
-
-
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
@@ -135,7 +133,7 @@ namespace BudgetTrackerMain
             
             // menuMainFile
             this.menuMainFile.Name = "menuMainFile";
-            this.menuMainFile.Size = new System.Drawing.Size(menuMainWidth, menuMainWidth);
+            this.menuMainFile.Size = new System.Drawing.Size(menuMainWidth, menuMainHeight);
             this.menuMainFile.Text = "File";
             this.menuMainFile.DropDownItems.AddRange
             (

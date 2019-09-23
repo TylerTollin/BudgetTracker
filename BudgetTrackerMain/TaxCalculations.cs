@@ -14,10 +14,10 @@ namespace BudgetTrackerMain
         double taxMedicareRate = 0.0145;
         IncomeCalculations GrossIncome = new IncomeCalculations();
 
-        public double CalculateTaxableIncome()
-        {
-            double incomeTaxableYearly = ;
-        }
+        //public double CalculateTaxableIncome()
+        //{
+        //    double incomeTaxableYearly = ;
+        //}
 
         public double YearlyFederalIncome()
         {

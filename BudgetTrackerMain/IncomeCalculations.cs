@@ -11,7 +11,7 @@ namespace BudgetTrackerMain
     {
         public double YearlyGrossIncome()
         {
-            double incomeGrossYear = ;
+            double incomeGrossYear = 90000.00;
             return Math.Round(incomeGrossYear, 2);
         }
 
