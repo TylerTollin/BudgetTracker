@@ -119,7 +119,7 @@ namespace BudgetTrackerMain
             this.menuMain.Size = new System.Drawing.Size(800, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "Main Menu";
-            this.menuMain.BackColor = System.Drawing.Color.White;
+            this.menuMain.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuMain.Items.AddRange
             (
                 new System.Windows.Forms.ToolStripItem[]

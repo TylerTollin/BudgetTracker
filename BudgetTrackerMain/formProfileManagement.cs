@@ -16,5 +16,27 @@ namespace BudgetTrackerMain
         {
             InitializeComponent();
         }
+
+        // File Menu Buttons
+
+        private void menuFileAddProfile_Click(object sender, EventArgs e)
+        {
+            Form formAddProfile = new formAddProfile();
+            formAddProfile.ShowDialog();
+        }
+
+        private void menuFileClose_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show
+            (
+                "Are you sure you want to exit?",
+                "Exit Program",
+                MessageBoxButtons.YesNo
+            );
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

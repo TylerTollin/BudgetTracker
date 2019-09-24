@@ -29,11 +29,64 @@ namespace BudgetTrackerMain
         /// </summary>
         private void InitializeComponent()
         {
-            #region Control Creation
-            this.SuspendLayout();
+            #region Main Menu Formatting
+            int menuMainWidth = 40;
+            int menuMainHeight = 20;
+            int menuSubWidth = 100;
+            int menuSubHeight = 20;
+
+            this.menuFileAddProfile = new System.Windows.Forms.ToolStripMenuItem()
+            {
+                Name = "menuFileAddProfile",
+                Size = new System.Drawing.Size(menuSubWidth, menuSubHeight),
+                Text = "Add Profile"
+            };
+            this.menuFileAddProfile.Click += new EventHandler(this.menuFileAddProfile_Click);
+
+            this.menuFileClose = new System.Windows.Forms.ToolStripMenuItem()
+            {
+                Name = "menuFileClose",
+                Size = new System.Drawing.Size(menuSubWidth, menuSubHeight),
+                Text = "Close"
+            };
+            this.menuFileClose.Click += new System.EventHandler(this.menuFileClose_Click);
+
+            this.menuMainFile = new System.Windows.Forms.ToolStripMenuItem()
+            {
+                Name = "menuMainFile",
+                Size = new System.Drawing.Size(menuMainWidth, menuMainHeight),
+                Text = "File"
+            };
+            this.menuMainFile.DropDownItems.AddRange
+                (
+                    new System.Windows.Forms.ToolStripItem[]
+                    {
+                        this.menuFileAddProfile,
+                        this.menuFileClose
+                    }
+                );
+
+            this.menuMain = new System.Windows.Forms.MenuStrip()
+            {
+                Name = "menuMain",
+                Text = "Main Menu",
+                Location = new System.Drawing.Point(0, 0),
+                Size = new System.Drawing.Size(800, 24),
+                BackColor = System.Drawing.Color.WhiteSmoke,
+                TabIndex = 0,
+                Visible = true
+            };
+            this.menuMain.Items.AddRange
+                (
+                    new System.Windows.Forms.ToolStripItem[]
+                    {
+                        this.menuMainFile
+                    }
+                );
             #endregion
 
             #region Form Formatting
+            this.SuspendLayout();
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 800);
@@ -41,20 +94,8 @@ namespace BudgetTrackerMain
             this.Text = "Profile Management";
             this.BackColor = System.Drawing.Color.White;
 
-            #endregion
+            this.Controls.Add(this.menuMain);
 
-            #region Main Menu Formatting
-            this.menuMain = new System.Windows.Forms.MenuStrip()
-            {
-                Name = "menuMain",
-                Text = "Main Menu",
-                Location = new System.Drawing.Point(0, 0),
-                Size = new System.Drawing.Size(800, 24),
-                BackColor = System.Drawing.Color.White,
-                TabIndex = 0,
-                Visible = true
-            };
-            this.Controls.Add(menuMain);
             this.ResumeLayout(false);
             this.PerformLayout();
             #endregion
@@ -62,6 +103,11 @@ namespace BudgetTrackerMain
 
         #region Call Controls
         private System.Windows.Forms.MenuStrip menuMain;
+
+        private System.Windows.Forms.ToolStripMenuItem menuMainFile;
+
+        private System.Windows.Forms.ToolStripMenuItem menuFileAddProfile;
+        private System.Windows.Forms.ToolStripMenuItem menuFileClose;
         #endregion
 
         #endregion

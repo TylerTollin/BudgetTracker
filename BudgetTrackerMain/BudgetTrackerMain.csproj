@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formAddProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddProfile.Designer.cs">
+      <DependentUpon>formAddProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="formBudgetTracker.cs">
       <SubType>Form</SubType>
     </Compile>
