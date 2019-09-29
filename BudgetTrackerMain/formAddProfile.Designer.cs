@@ -37,6 +37,8 @@ namespace BudgetTrackerMain
             int inputBoxRow3 = 140;
             int inputBoxRow4 = 180;
             int inputBoxRow5 = 220;
+            int inputBoxRow6 = 260;
+            int inputBoxRow7 = 300;
             int inputBoxWidth = 235;
             int inputBoxHeight = 20;
             int labelWidth = 200;
@@ -132,6 +134,42 @@ namespace BudgetTrackerMain
                 BorderStyle = BorderStyle.FixedSingle,
                 TabIndex = 4
             };
+
+            this.labelState = new Label()
+            {
+                Name = "labelState",
+                Text = "State:",
+                Font = fontLabel,
+                Location = new System.Drawing.Point(inputBoxLeftAlign, inputBoxRow6 - 15),
+                Size = new System.Drawing.Size(labelWidth, labelHeight)
+            };
+
+            this.inputState = new TextBox()
+            {
+                Name = "inputState",
+                Location = new System.Drawing.Point(inputBoxLeftAlign, inputBoxRow6),
+                Size = new System.Drawing.Size(inputBoxWidth, inputBoxHeight),
+                BorderStyle = BorderStyle.FixedSingle,
+                TabIndex = 5
+            };
+
+            this.labelNotes = new Label()
+            {
+                Name = "labelNotes",
+                Text = "Notes:",
+                Font = fontLabel,
+                Location = new System.Drawing.Point(inputBoxLeftAlign, inputBoxRow7 - 15),
+                Size = new System.Drawing.Size(labelWidth, labelHeight)
+            };
+
+            this.inputNotes = new TextBox()
+            {
+                Name = "inputNotes",
+                Location = new System.Drawing.Point(inputBoxLeftAlign, inputBoxRow7),
+                Size = new System.Drawing.Size(inputBoxWidth, inputBoxHeight),
+                BorderStyle = BorderStyle.FixedSingle,
+                TabIndex = 6
+            };
             #endregion // User Entry Formatting
 
             #region Main Menu Formatting
@@ -202,7 +240,7 @@ namespace BudgetTrackerMain
             int buttonLeftCol1 = 20;
             int buttonLeftCol2 = 100;
             int buttonLeftCol3 = 180;
-            int buttonTop = 260;
+            int buttonTop = 350;
 
             this.buttonSave = new Button()
             {
@@ -237,7 +275,7 @@ namespace BudgetTrackerMain
             this.Name = "formAddProfile";
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 350);
+            this.ClientSize = new System.Drawing.Size(325, 400);
             this.Text = "Add Profile";
             this.BackColor = System.Drawing.Color.White;
 

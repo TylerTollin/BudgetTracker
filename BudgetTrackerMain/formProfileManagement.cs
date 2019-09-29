@@ -17,8 +17,7 @@ namespace BudgetTrackerMain
             InitializeComponent();
         }
 
-        // File Menu Buttons
-
+        #region Menu File Buttons
         private void menuFileAddProfile_Click(object sender, EventArgs e)
         {
             Form formAddProfile = new formAddProfile();
@@ -37,6 +36,13 @@ namespace BudgetTrackerMain
             {
                 this.Close();
             }
+        }
+        #endregion
+
+        private void GetProfiles()
+        {
+            System.Data.DataTable profiles = Database.RetrieveProfiles();
+            gridProfiles.SetDataBinding(profiles, "ProfileTable");
         }
     }
 }

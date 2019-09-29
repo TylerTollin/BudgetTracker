@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 namespace BudgetTrackerMain
 {
     partial class formProfileManagement
@@ -29,6 +30,19 @@ namespace BudgetTrackerMain
         /// </summary>
         private void InitializeComponent()
         {
+            #region Profile Selection Controls
+            var gridLocation = new System.Drawing.Point(200, 50);
+            var gridSize = new System.Drawing.Size(550, 500);
+
+            this.gridProfiles = new DataGrid()
+            {
+                Name = "gridProfiles",
+                Location = gridLocation,
+                Size = gridSize
+            };
+            this.GetProfiles();
+            #endregion
+
             #region Main Menu Formatting
             int menuMainWidth = 40;
             int menuMainHeight = 20;
@@ -95,6 +109,7 @@ namespace BudgetTrackerMain
             this.BackColor = System.Drawing.Color.White;
 
             this.Controls.Add(this.menuMain);
+            this.Controls.Add(this.gridProfiles);
 
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,6 +123,9 @@ namespace BudgetTrackerMain
 
         private System.Windows.Forms.ToolStripMenuItem menuFileAddProfile;
         private System.Windows.Forms.ToolStripMenuItem menuFileClose;
+
+        private Label labelProfiles;
+        private DataGrid gridProfiles;
         #endregion
 
         #endregion

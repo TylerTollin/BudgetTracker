@@ -9,12 +9,21 @@ namespace BudgetTrackerMain
 {
     class Database
     {
-        public static void InsertProfile(string inputFirst, string inputLast, string inputCompany = null, string inputJobTitle = null, string inputState, float inputSalary, string inputNotes = null)
+        public static void InsertProfile
+            (
+                string inputFirst, 
+                string inputLast, 
+                string inputState, 
+                float inputSalary, 
+                string inputCompany = null, 
+                string inputJobTitle = null, 
+                string inputNotes = null
+            )
         {
             SQLiteConnection sqlite_conn = CreateConnection();
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
             sqlite_cmd.CommandText = 
-                "INSERT INTO dbo.Profile" +
+                "INSERT INTO main.Profile" +
                 "   (" +
                 "       DATE_CREATED," +
                 "       FIRST_NAME," +
@@ -40,11 +49,22 @@ namespace BudgetTrackerMain
             sqlite_conn.Close();
         }
 
+        public static System.Data.DataTable RetrieveProfiles()
+        {
+            SQLiteConnection sqlite_conn = CreateConnection();
+            SQLiteDataAdapter sqlite_Adapter = new SQLiteDataAdapter("SELECT * FROM main.Profile", sqlite_conn);
+            System.Data.DataSet dataProfiles = new System.Data.DataSet("dataProfiles");
+            sqlite_Adapter.Fill(dataProfiles);
+            System.Data.DataTable tableProfile = dataProfiles.Tables.Add(new System.Data.DataTable("Profile"));
+            sqlite_conn.Close();
+            return tableProfile;
+        }
+
         static SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_conn = new SQLiteConnection
                 (
-                    "Data Source = BudgetTracker.db;Version=3;New=True;Compress=True;"
+                    "Data Source = BudgetTracker.db;Version=3;"
                 );
             try
             {

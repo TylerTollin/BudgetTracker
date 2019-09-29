@@ -48,12 +48,19 @@ namespace BudgetTrackerMain
                     (
                         inputFirstName.Text,
                         inputLastName.Text,
-                        inputCompany.Text,
-                        inputJobTitle.Text,
                         inputState.Text,
                         float.Parse(inputGrossYrlySalary.Text),
+                        inputCompany.Text,
+                        inputJobTitle.Text,
                         inputNotes.Text
                     );
+                MessageBox.Show
+                    (
+                        "The profile was added!",
+                        "Add Complete",
+                        MessageBoxButtons.OK
+                    );
+                this.Close();
             }
         }
 
