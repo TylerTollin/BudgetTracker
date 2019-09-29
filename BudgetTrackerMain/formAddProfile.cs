@@ -16,5 +16,71 @@ namespace BudgetTrackerMain
         {
             InitializeComponent();
         }
+
+        #region Menu Controls
+        private void menuFileClose_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show
+                (
+                    "Are you sure you want to exit? Unsaved changes will be lost.",
+                    "Exit Window",
+                    MessageBoxButtons.YesNo
+                );
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        #endregion // Menu Controls
+
+        #region Button Controls
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            var ConfirmInput = MessageBox.Show
+                (
+                    "Are you sure you want to save this profile?",
+                    "Profile Confirmation",
+                    MessageBoxButtons.YesNo
+                );
+            if (ConfirmInput == DialogResult.Yes)
+            {
+                Database.InsertProfile
+                    (
+                        inputFirstName.Text,
+                        inputLastName.Text,
+                        inputCompany.Text,
+                        inputJobTitle.Text,
+                        inputState.Text,
+                        float.Parse(inputGrossYrlySalary.Text),
+                        inputNotes.Text
+                    );
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            inputFirstName.Clear();
+            inputLastName.Clear();
+            inputCompany.Clear();
+            inputJobTitle.Clear();
+            inputGrossYrlySalary.Clear();
+
+            inputFirstName.Focus();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show
+                (
+                    "Are you sure you want to exit? Unsaved changes will be lost.",
+                    "Exit Window",
+                    MessageBoxButtons.YesNo
+                );
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        #endregion // Button Controls
     }
 }
