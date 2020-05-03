@@ -31,16 +31,7 @@ namespace BudgetTrackerMain
         private void InitializeComponent()
         {
             #region Profile Selection Controls
-            var gridLocation = new System.Drawing.Point(200, 50);
-            var gridSize = new System.Drawing.Size(550, 500);
-
-            this.gridProfiles = new DataGrid()
-            {
-                Name = "gridProfiles",
-                Location = gridLocation,
-                Size = gridSize
-            };
-            this.GetProfiles();
+            this.DrawGrid();
             #endregion
 
             #region Main Menu Formatting
@@ -99,6 +90,31 @@ namespace BudgetTrackerMain
                 );
             #endregion
 
+            #region Button Formatting
+            var buttonSize = new System.Drawing.Size(90, 40);
+            int buttonXPos = 20;
+            int buttonYPos = 50;
+            int buttonYSpacing = 40;
+
+            this.buttonAddProfile = new Button()
+            {
+                Name = "buttonAddProfile",
+                Text = "Add Profile",
+                Location = new System.Drawing.Point(buttonXPos, buttonYPos),
+                Size = buttonSize
+            };
+            this.buttonAddProfile.Click += new EventHandler(this.buttonAddProfile_Click);
+
+            this.buttonEditProfile = new Button()
+            {
+                Name = "buttonEditProfile",
+                Text = "Edit Profile",
+                Location = new System.Drawing.Point(buttonXPos, buttonYPos + buttonYSpacing),
+                Size = buttonSize
+            };
+            this.buttonEditProfile.Click += new EventHandler(this.buttonEditProfile_Click);
+            #endregion // Button Formatting
+
             #region Form Formatting
             this.SuspendLayout();
             this.components = new System.ComponentModel.Container();
@@ -110,10 +126,18 @@ namespace BudgetTrackerMain
 
             this.Controls.Add(this.menuMain);
             this.Controls.Add(this.gridProfiles);
+            this.Controls.Add(this.buttonAddProfile);
+            this.Controls.Add(this.buttonEditProfile);
+            this.Controls.Add(this.buttonRemoveProfile);
 
             this.ResumeLayout(false);
             this.PerformLayout();
             #endregion
+        }
+
+        private void ButtonAddProfile_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #region Call Controls
@@ -124,8 +148,12 @@ namespace BudgetTrackerMain
         private System.Windows.Forms.ToolStripMenuItem menuFileAddProfile;
         private System.Windows.Forms.ToolStripMenuItem menuFileClose;
 
+        private Button buttonAddProfile;
+        private Button buttonEditProfile;
+        private Button buttonRemoveProfile;
+
         private Label labelProfiles;
-        private DataGrid gridProfiles;
+        private DataGridView gridProfiles;
         #endregion
 
         #endregion

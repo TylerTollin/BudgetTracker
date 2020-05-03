@@ -12,7 +12,16 @@ namespace BudgetTrackerMain
 {
     public partial class formAddProfile : Form
     {
-        public formAddProfile()
+        public formAddProfile
+            (
+                string _firstName = null,
+                string _lastName = null,
+                string _state = null,
+                float _yearlySalary = 0.0f,
+                string _company = null,
+                string _jobTitle = null,
+                string _notes = null
+            )
         {
             InitializeComponent();
         }
@@ -44,7 +53,9 @@ namespace BudgetTrackerMain
                 );
             if (ConfirmInput == DialogResult.Yes)
             {
-                Database.InsertProfile
+                try
+                {
+                    Database.InsertProfile
                     (
                         inputFirstName.Text,
                         inputLastName.Text,
@@ -54,13 +65,19 @@ namespace BudgetTrackerMain
                         inputJobTitle.Text,
                         inputNotes.Text
                     );
-                MessageBox.Show
-                    (
-                        "The profile was added!",
-                        "Add Complete",
-                        MessageBoxButtons.OK
-                    );
-                this.Close();
+                    MessageBox.Show
+                        (
+                            "The profile was added!",
+                            "Add Complete",
+                            MessageBoxButtons.OK
+                        );
+                    this.Dispose();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
