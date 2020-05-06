@@ -113,6 +113,15 @@ namespace BudgetTrackerMain
                 Size = buttonSize
             };
             this.buttonEditProfile.Click += new EventHandler(this.buttonEditProfile_Click);
+
+            this.buttonRemoveProfile = new Button()
+            {
+                Name = "buttonRemoveProfile",
+                Text = "Delete Profile",
+                Location = new System.Drawing.Point(buttonXPos, buttonYPos + buttonYSpacing * 2),
+                Size = buttonSize
+            };
+            this.buttonRemoveProfile.Click += new EventHandler(this.buttonRemoveProfile_Click);
             #endregion // Button Formatting
 
             #region Form Formatting

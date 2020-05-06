@@ -16,9 +16,9 @@ namespace BudgetTrackerMain
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formProfileManagement());
+            //Application.Run(new formProfileManagement());
             
-            //Application.Run(new formBudgetTracker());
+            Application.Run(new formBudgetTracker());
         }
     }
 }

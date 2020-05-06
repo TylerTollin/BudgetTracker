@@ -51,6 +51,36 @@ namespace BudgetTrackerMain
             sqlite_conn.Close();
         }
 
+        public static void UpdateProfile
+            (
+                int profileID,
+                string inputFirst,
+                string inputLast,
+                string inputState,
+                float inputSalary,
+                string inputCompany = null,
+                string inputJobTitle = null,
+                string inputNotes = null
+            )
+        {
+            SQLiteConnection sqlite_conn = CreateConnection();
+            SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
+            sqlite_cmd.CommandText = @"
+                UPDATE main.Profile
+                SET 
+                    FIRST_NAME = '" + inputFirst + @"',
+                    LAST_NAME = '" + inputLast + @"',
+                    COMPANY = '" + inputCompany + @"',
+                    JOB_TITLE = '" + inputJobTitle + @"',
+                    STATE = '" + inputState + @"',
+                    YEARLY_INCOME = " + inputSalary + @",
+                    NOTES = '" + inputNotes + @"'
+                WHERE
+                    PROFILE_ID = " + profileID + ";";
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_conn.Close();
+        }
+
         public static void DeleteProfile(int profileID)
         {
             string sql_query = @"
@@ -60,6 +90,7 @@ namespace BudgetTrackerMain
             SQLiteConnection sqlite_conn = CreateConnection();
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
             sqlite_cmd.CommandText = sql_query;
+            sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
 
@@ -75,6 +106,7 @@ namespace BudgetTrackerMain
                 {
                     string sql_query = @"
                         SELECT
+                            PROFILE_ID as 'Profile #',
                             FIRST_NAME as 'First Name',
                             LAST_NAME as 'Last Name',
                             COMPANY as Company,
@@ -116,7 +148,7 @@ namespace BudgetTrackerMain
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             return sqlite_conn;
         }
